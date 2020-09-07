@@ -1,12 +1,153 @@
 <!DOCTYPE html>
-<meta charset="utf-8" />
-<title>Redirecting to https://story-project.vercel.app/</title>
-<meta http-equiv="refresh" content="0; URL=https://story-project.vercel.app/" />
-<link rel="canonical" href="https://story-project.vercel.app/" />
+<html>
+<head>
+    <title>dev Tunes</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+    <div id="mainContainer">
+        <div id="topContainer">
+            
+            <div id="navBarContainer">
+                <nav class="navBar">
 
-<body style="text-align: center;">
-  Redirecting to
-  <a href="https://story-project.vercel.app/"
-    >https://story-project.vercel.app/</a
-  >
+                    <span role="link" tabindex="0" onclick="toGrid(albumsList)" class="logo">
+                        <img src="assets/images/icons/logo.png">
+                        dev Tunes
+                    </span>
+
+                    <div class="group">
+                        <div class="navItem">
+                            <span role="link" tabindex="0" onclick="openSearch()" class="navItemLink">
+                                Search
+                                <img src="assets/images/icons/search.png" class="icon" alt="search">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <div class="navItem">
+                            <span role="link" tabindex="0" onclick="toGrid(albumsList)" class="navItemLink">Browse</span>
+                        </div>
+                        <div class="navItem">
+                            <span role="link" tabindex="0" onclick="buildPlaylistsPage()" class="navItemLink">Playlists</span>
+                        </div>
+                        <div class="navItem">
+                            <span role="link" tabindex="0" onclick="openProfile()" class="navItemLink">Profile</span>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div id="mainViewContainer">
+                
+                <div id="mainContent">
+                        <h1 class="pageHeading">Welcome to dev Tunes!</h1>
+                    <div id="welcome">
+                        <p>This was an educational project for me, to apply the knowledge and techniques that I had studied over the last few months and solidify those concepts in my mind. A Udemy course I took was used as reference for building this site, but rather than working with jQuery and PHP my main goal was to improve on my JavaScript, therefore I made the effort of solely using HTML, CSS and vanilla JavaScript for this project.</p>
+
+                        <p>*Note- I realise there are better practices for some of the functionality in this music player such as storing data and accessing files through a server rather than locally but again this project was purely for improving my JavaScript.
+                            
+                        <p>It is best to use Chrome with this site, due to some other browsers having issues with working locally, on non-server environment.</p>
+
+                        <p>Also the test audio files are just reused for most of the songs, that's why you'll hear different songs playing the same audio, and the profile page is just a dummy page of course.</p>
+                    </div>
+                </div>
+
+                <nav class="optionsMenu">
+                </nav>
+
+            </div>
+        </div>
+
+        <div id="nowPlayingBarContainer">
+            <div id="nowPlayingBar">
+                
+                <div id="nowPlayingLeft">
+                    <div class="content">
+                        <span class="albumLink">
+                            <img role="link" tabindex="0" src="assets/images/artwork/default.jpg" class="albumArtwork" data-albumId="" onclick="buildAlbumPage(this.dataset.albumId)">
+                        </span>
+
+                        <div class="trackInfo">
+                            <span class="trackName">
+                                <span role="link" tabindex="0" data-albumId="" onclick="buildAlbumPage(this.dataset.albumId)"></span>
+                            </span>
+                            <span class="artistName">
+                                <span role="link" tabindex="0" onclick="buildArtistPage(this.textContent)"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="nowPlayingCenter">
+                    <div class="content playerControls">
+
+                        <div class="buttons">
+                            <button class="controlButton shuffle" title="Shuffle button" onclick="setShuffle()"> 
+                                <img src="assets/images/icons/shuffle.png" alt="Shuffle">
+                            </button>
+                            <button class="controlButton previous" title="Previous button" onclick="prevSong()">
+                                <img src="assets/images/icons/previous.png" alt="Previous">
+                            </button>
+                            <button class="controlButton play" title="Play button" onclick="playSong()">
+                                <img src="assets/images/icons/play.png" alt="Play">
+                            </button>
+                            <button class="controlButton pause" title="Pause button" onclick="pauseSong()">
+                                <img src="assets/images/icons/pause.png" alt="Pause">
+                            </button>
+                            <button class="controlButton next" title="Next button" onclick="nextSong()">
+                                <img src="assets/images/icons/next.png" alt="Next">
+                            </button>
+                            <button class="controlButton repeat" title="Repeat button" onclick="setRepeat()">
+                                <img src="assets/images/icons/repeat.png" alt="Repeat">
+                            </button>
+                        </div>
+
+                        <div class="playbackBar">
+
+                            <span class="progressTime current">0:00</span>
+                            <div class="progressBar">
+                                <div class="progressBarBg">
+                                    <div class="progress"></div>
+                                </div>
+                            </div>
+                            <span class="progressTime remaining">0:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="nowPlayingRight">
+
+                    <div class="volumeBar">
+                        <button class="controlButton volume" title="Volume button" onclick="setMute()">
+                            <img src="assets/images/icons/volume.png" alt="Volume">
+                        </button>
+                        <div class="progressBar">
+                            <div class="progressBarBg">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<audio src="" id="currentSong"></audio>
+
+
+
+<script src="assets/js/songDB.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/onready.js"></script>
+<script src="assets/js/browse.js"></script>
+<script src="assets/js/album.js"></script>
+<script src="assets/js/playlists.js"></script>
+<script src="assets/js/artist.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/profile.js"></script>
 </body>
+</html>
